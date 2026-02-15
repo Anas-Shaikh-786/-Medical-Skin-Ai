@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+
+# Dataset
+data/
+*.zip
+
+# Models
+models/
+
+# Temp files
+temp/
+*.jpg
+*.png
+*.mp4
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db

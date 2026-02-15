@@ -1,0 +1,2 @@
+Power Shell  - nvp run dev (frontend)
+Anaconda - uvicorn api.main:app -reload (backend)
