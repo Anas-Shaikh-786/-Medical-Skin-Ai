@@ -1202,7 +1202,8 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
 
-  const API = "http://127.0.0.1:8000";
+  //const API = "http://127.0.0.1:8000";
+  const API = "https://medical-skin-ai.onrender.com";
 
   const handleImage = (e) => {
     const file = e.target.files[0];
