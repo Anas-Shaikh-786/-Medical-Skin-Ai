@@ -1,3 +1,4 @@
+
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import FileResponse
 import torch
@@ -11,6 +12,9 @@ import numpy as np
 import cv2
 from fastapi.middleware.cors import CORSMiddleware
 from explainability.grad_cam import GradCam, overlay_cam
+
+# Hugging Face
+from huggingface_hub import hf_hub_download
 
 # -----------------------------
 # App setup
@@ -53,8 +57,17 @@ def load_model():
     model = models.resnet18(weights=None)  # IMPORTANT
     model.fc = nn.Linear(model.fc.in_features, NUM_CLASSES)
 
+    # Turn on when offline(model not on Hugging Face )
+    # model.load_state_dict(
+    #     torch.load("models/skin_model.pt", map_location=device)
+    # )
+    model_path = hf_hub_download(
+        repo_id ="Anas-Shaikh-786/skin-lession-model",
+        filename = 'skin_model.pt'
+    )
+
     model.load_state_dict(
-        torch.load("models/skin_model.pt", map_location=device)
+        torch.load(model_path , map_location=device)
     )
 
     model.to(device)
