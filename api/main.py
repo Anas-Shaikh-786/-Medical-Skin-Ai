@@ -62,7 +62,7 @@ def load_model():
     #     torch.load("models/skin_model.pt", map_location=device)
     # )
     model_path = hf_hub_download(
-        repo_id ="Anas-Shaikh-786/skin-lession-model",
+        repo_id ="Anas-Shaikh-786/skin-lesion-model",
         filename = 'skin_model.pt',
         token=os.getenv("HUGGINGFACE_TOKEN")
     )
