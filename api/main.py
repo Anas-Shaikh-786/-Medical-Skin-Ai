@@ -63,7 +63,8 @@ def load_model():
     # )
     model_path = hf_hub_download(
         repo_id ="Anas-Shaikh-786/skin-lession-model",
-        filename = 'skin_model.pt'
+        filename = 'skin_model.pt',
+        token=os.getenv("HUGGINGFACE_TOKEN")
     )
 
     model.load_state_dict(
